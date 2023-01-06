@@ -1,24 +1,96 @@
 let passwordSize = 0;
-// let passwordRepo =[];
 let passwordRepo = [];
 let generatedPassword = "";
-// let optionSelected = 0;
-
 
 // Array of special characters to be included in password
 let specialCharacters = [
-  "@","%","+","\\","/","'","!","#","$","^","?",":",",",")","(","}","{","]","[","~","-","_",".",];
+  "@",
+  "%",
+  "+",
+  "\\",
+  "/",
+  "'",
+  "!",
+  "#",
+  "$",
+  "^",
+  "?",
+  ":",
+  ",",
+  ")",
+  "(",
+  "}",
+  "{",
+  "]",
+  "[",
+  "~",
+  "-",
+  "_",
+  ".",
+];
 
 // Array of numeric characters to be included in password
 let numericCharacters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 // Array of lowercase characters to be included in password
 let lowerCasedCharacters = [
-  "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",];
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+  "g",
+  "h",
+  "i",
+  "j",
+  "k",
+  "l",
+  "m",
+  "n",
+  "o",
+  "p",
+  "q",
+  "r",
+  "s",
+  "t",
+  "u",
+  "v",
+  "w",
+  "x",
+  "y",
+  "z",
+];
 
 // Array of uppercase characters to be included in password
 let upperCasedCharacters = [
-  "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",];
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+  "F",
+  "G",
+  "H",
+  "I",
+  "J",
+  "K",
+  "L",
+  "M",
+  "N",
+  "O",
+  "P",
+  "Q",
+  "R",
+  "S",
+  "T",
+  "U",
+  "V",
+  "W",
+  "X",
+  "Y",
+  "Z",
+];
 
 // Function to prompt user for password options
 
@@ -66,28 +138,21 @@ function getPasswordOptions() {
       "Do you want specia charachters (You must select at least one option)?"
     );
     if (specialCharOption) {
-     passwordRepo = passwordRepo.concat(specialCharacters);
+      passwordRepo = passwordRepo.concat(specialCharacters);
       optionSelected++;
     }
     // return passwordRepoFinal=passwordRepo;
   } while (optionSelected < 1);
 
-
-  console.log("Password size is: "+passwordSize);
+  console.log("Password size is: " + passwordSize);
   console.log(passwordRepo);
   console.log(optionSelected);
- 
 }
 
 
-
-// console.log(passwordRepo);
-
-// getPasswordOptions();
-
 // Function for getting a random element from an array
 function getRandom() {
-  generatedPassword="";
+  generatedPassword = "";
   for (i = 0; i < passwordSize; i++) {
     generatedPassword = generatedPassword.concat(
       passwordRepo[Math.floor(Math.random() * passwordRepo.length)]
@@ -99,8 +164,8 @@ function getRandom() {
 // Function to generate password with user input
 function generatePassword() {
   getPasswordOptions();
-getRandom()
-   return generatedPassword;
+  getRandom();
+  return generatedPassword;
 }
 
 // Get references to the #generate element
@@ -108,7 +173,6 @@ let generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  
   let password = generatePassword();
   let passwordText = document.querySelector("#password");
 
