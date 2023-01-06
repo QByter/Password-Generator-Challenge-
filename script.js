@@ -160,6 +160,7 @@ function getPasswordOptions() {
 
 // Function for getting a random element from an array
 function getRandom() {
+  generatedPassword="";
   for (i = 0; i < passwordSize; i++) {
     generatedPassword = generatedPassword.concat(
       passwordRepo[Math.floor(Math.random() * passwordRepo.length)]
@@ -180,6 +181,7 @@ let generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
+  
   let password = generatePassword();
   let passwordText = document.querySelector("#password");
 
