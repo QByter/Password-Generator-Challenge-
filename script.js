@@ -1,3 +1,4 @@
+//Test
 let passwordSize = 0;
 let passwordRepo = [];
 let generatedPassword = "";
@@ -106,50 +107,43 @@ function getPasswordOptions() {
   }
 
   // Charachter options
-  let optionSelected = 0;
+  let lowerCaseOption;
+  let upperCaseOption;
+  let numberOption;
+  let specialCharOption;
   do {
-    // let optionSelected = 0;
-
-    let lowerCaseOption = confirm(
+    lowerCaseOption = confirm(
       "Do you want lowercase letters (You must select at least one option)?"
     );
     if (lowerCaseOption) {
       passwordRepo = passwordRepo.concat(lowerCasedCharacters);
-      optionSelected++;
     }
-
-    let upperCaseOption = confirm(
+    upperCaseOption = confirm(
       "Do you want Uppercase letrers (You must select at least one option)?"
     );
     if (upperCaseOption) {
       passwordRepo = passwordRepo.concat(upperCasedCharacters);
-      optionSelected++;
     }
-
-    let numberOption = confirm(
+    numberOption = confirm(
       "Do you want numbers (You must select at least one option)?"
     );
     if (numberOption) {
       passwordRepo = passwordRepo.concat(numericCharacters);
-      optionSelected++;
     }
-
-    let specialCharOption = confirm(
+    specialCharOption = confirm(
       "Do you want specia charachters (You must select at least one option)?"
     );
     if (specialCharOption) {
       passwordRepo = passwordRepo.concat(specialCharacters);
-      optionSelected++;
     }
     // return passwordRepoFinal=passwordRepo;
-  } while (optionSelected < 1);
-
-  console.log("Password size is: " + passwordSize);
-  console.log(passwordRepo);
-  console.log(optionSelected);
+  } while (
+    lowerCaseOption === false &&
+    upperCaseOption === false &&
+    numberOption === false &&
+    specialCharOption === false
+  );
 }
-
-
 // Function for getting a random element from an array
 function getRandom() {
   generatedPassword = "";
@@ -160,14 +154,12 @@ function getRandom() {
   }
   console.log("The password is " + generatedPassword);
 }
-
 // Function to generate password with user input
 function generatePassword() {
   getPasswordOptions();
   getRandom();
   return generatedPassword;
 }
-
 // Get references to the #generate element
 let generateBtn = document.querySelector("#generate");
 
@@ -175,9 +167,7 @@ let generateBtn = document.querySelector("#generate");
 function writePassword() {
   let password = generatePassword();
   let passwordText = document.querySelector("#password");
-
   passwordText.value = password;
 }
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
