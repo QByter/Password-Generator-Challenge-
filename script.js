@@ -3,6 +3,12 @@ let passwordSize = 0;
 let passwordRepo = [];
 let generatedPassword = "";
 
+function inputCharChoice(charChoice) {
+  return confirm(
+    "Do you want " + charChoice + " (You must select at least one option)?"
+  );
+}
+
 // Array of special characters to be included in password
 let specialCharacters = [
   "@",
@@ -111,32 +117,24 @@ function getPasswordOptions() {
   let upperCaseOption;
   let numberOption;
   let specialCharOption;
+
   do {
-    lowerCaseOption = confirm(
-      "Do you want lowercase letters (You must select at least one option)?"
-    );
+    lowerCaseOption = inputCharChoice("lowercase charachters");
     if (lowerCaseOption) {
       passwordRepo = passwordRepo.concat(lowerCasedCharacters);
     }
-    upperCaseOption = confirm(
-      "Do you want Uppercase letrers (You must select at least one option)?"
-    );
+    upperCaseOption = inputCharChoice("uppercase charachters");
     if (upperCaseOption) {
       passwordRepo = passwordRepo.concat(upperCasedCharacters);
     }
-    numberOption = confirm(
-      "Do you want numbers (You must select at least one option)?"
-    );
+    numberOption = inputCharChoice("numbers");
     if (numberOption) {
       passwordRepo = passwordRepo.concat(numericCharacters);
     }
-    specialCharOption = confirm(
-      "Do you want specia charachters (You must select at least one option)?"
-    );
+    specialCharOption = inputCharChoice("special charachters");
     if (specialCharOption) {
       passwordRepo = passwordRepo.concat(specialCharacters);
     }
-    // return passwordRepoFinal=passwordRepo;
   } while (
     lowerCaseOption === false &&
     upperCaseOption === false &&
