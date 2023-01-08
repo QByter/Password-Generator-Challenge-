@@ -5,7 +5,7 @@ let generatedPassword = "";
 
 function inputCharChoice(charChoice) {
   return confirm(
-    "Do you want " + charChoice + " (You must select at least one option)?"
+    "Do you want " + charChoice + " in your password (You must select at least one option)?"
   );
 }
 
